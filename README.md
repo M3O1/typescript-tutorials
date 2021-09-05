@@ -19,3 +19,5 @@
 ### Reference
 
 1. [타입스크립트 핸드북](https://www.google.com/search?q=Snippet&rlz=1C5CHFA_enKR919KR920&oq=Snippet&aqs=chrome..69i57j0i512l4j69i60l3.2009j0j7&sourceid=chrome&ie=UTF-8)
+
+2. [Node.js 디자인 패턴 바이블-github 저장소](https://github.com/PacktPublishing/Node.js-Design-Patterns-Third-Edition)
