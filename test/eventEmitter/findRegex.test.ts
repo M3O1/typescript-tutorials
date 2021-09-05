@@ -7,7 +7,7 @@ describe("name", () => {
         let x = spy()
 
         emitter
-            .addFile("./data/1.txt")
+            .addFile("./test/data/1.txt")
             .find()
             .on(emitter.EVENT.FILEREAD, x)
 
@@ -22,7 +22,7 @@ describe("name", () => {
         let x = spy()
 
         emitter
-            .addFile("./data/2.txt")
+            .addFile("./test/data/2.txt")
             .find()
             .on(emitter.EVENT.ERROR, x)
 
@@ -37,7 +37,7 @@ describe("name", () => {
         let x = spy()
 
         emitter
-            .addFile("./data/1.txt")
+            .addFile("./test/data/1.txt")
             .find()
             .on(emitter.EVENT.FOUND, x)
 
