@@ -1,8 +1,6 @@
 import {FindRegex} from "../../src/eventEmitter/findRegex";
 import {assert, spy} from "sinon";
 
-jest.useRealTimers()
-
 describe("name", () => {
     it("FILE이 있는 경우, FILEREAD는 한번 발생한다.", (done) => {
         let emitter = new FindRegex(/abc+/g)
