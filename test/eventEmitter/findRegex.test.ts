@@ -1,4 +1,4 @@
-import {FindRegex} from "./findRegex";
+import {FindRegex} from "../../src/eventEmitter/findRegex";
 import {assert, spy} from "sinon";
 
 jest.useRealTimers()
