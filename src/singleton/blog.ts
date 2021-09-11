@@ -1,10 +1,6 @@
 import {promisify} from 'util'
-import {db} from './db'
 import {Post} from "./Post";
 import {Database} from "sqlite3";
-
-const dbRun = promisify(db.run.bind(db))
-const dbAll = promisify(db.all.bind(db))
 
 export class Blog {
     private readonly db: Database
@@ -25,23 +21,26 @@ export class Blog {
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )`
 
-        return dbRun(initQuery)
+        return this.dbRun(initQuery)
     }
 
     createPost(post: Post) {
-        return dbRun(`INSERT INTO posts(id,title,content,created_at) VALUES ('${post.id}', '${post.title}', '${post.content}', '${post.created_at.toISOString()}')`)
+        return this.dbRun(`INSERT INTO posts(id,title,content,created_at) VALUES ('${post.id}', '${post.title}', '${post.content}', '${post.created_at.toISOString()}')`)
     }
 
     deletePost(id: string) {
-        return dbRun(`DELETE FROM posts WHERE id = ${id}`)
+        return this.dbRun(`DELETE FROM posts WHERE id = ${id}`)
     }
 
     deleteAll() {
-        return dbRun(`DELETE FROM posts`)
+        return this.dbRun(`DELETE FROM posts`)
     }
 
     getAllPosts(): Promise<Post[]> {
-        return dbAll(`SELECT * FROM posts ORDER BY created_at DESC`)
-            .then(rows => (rows as any[]).map(row => Post.of(row)))
+        return this.dbAll(`SELECT * FROM posts ORDER BY created_at DESC`)
+            .then(value => {
+                const rows = value as any[]
+                return rows.map(row => Post.of(row));
+            })
     }
 }
