@@ -1,7 +1,9 @@
 import {Blog} from "./blog";
+import {createDB} from "./db";
 
 async function main() {
-    const blog = new Blog()
+    const db = createDB()
+    const blog = new Blog(db)
     await blog.initialize()
     const posts = await blog.getAllPosts()
 
