@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
+    "prestart": "tsc",
+    "start": "node dist/src/run.js",
     "test": "jest --coverage"
   },
   "devDependencies": {
